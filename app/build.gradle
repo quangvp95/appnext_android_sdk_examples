@@ -1,30 +1,85 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion '27.0.3'
+    namespace 'com.example.appnextapplication'
+    compileSdk 33
 
     defaultConfig {
-        applicationId "com.appnext.sdktest"
-        minSdkVersion 15
-        targetSdkVersion 27
+        applicationId "com.example.appnextapplication"
+        minSdk 24
+        targetSdk 33
         versionCode 1
         versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
     }
+
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.4.3'
+    }
+    packaging {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "com.android.support:customtabs:27.1.1"
-    implementation  'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.google.android.gms:play-services-ads:15.0.1'
-    implementation 'com.google.android.gms:play-services-location:15.0.1'
-    implementation 'com.appnext.sdk:ads:2.4.2.471.2'
-    implementation 'com.appnext.sdk:banners:2.4.2.471.2'
+
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
+    implementation 'androidx.activity:activity-compose:1.7.0'
+    implementation platform('androidx.compose:compose-bom:2023.03.00')
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-graphics'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    implementation 'androidx.compose.material3:material3'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation platform('androidx.compose:compose-bom:2023.03.00')
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
+    debugImplementation 'androidx.compose.ui:ui-tooling'
+    debugImplementation 'androidx.compose.ui:ui-test-manifest'
+
+    implementation "androidx.appcompat:appcompat:1.6.1"
+    implementation "com.google.android.material:material:1.9.0"
+
+    implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1' // Mandatory
+    implementation 'androidx.annotation:annotation:1.6.0' // Mandatory
+    implementation "androidx.work:work-runtime:2.8.1"  // Mandatory
+    implementation 'com.github.bumptech.glide:glide:4.12.0' // Mandatory
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0' // Mandatory
+
+    implementation 'com.appnext.sdk:ads:2.7.0.473'
+    implementation 'com.appnext.sdk:banners:2.7.0.473'
+    implementation 'com.appnext.sdk:native-ads2:2.7.0.473'
+//    implementation 'com.appnext.sdk:actions:2.6.8.473'
+    implementation 'com.google.android.gms:play-services-ads:22.3.0'
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+    implementation 'com.appnext.sdk:core:2.7.0.473'
+
+
 }

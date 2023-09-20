@@ -1,131 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:appnext="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.appnext.sdktest.MainActivity">
+    tools:ignore="UselessParent">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="30dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Set streaming mode"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginLeft="10dp"/>
-                <Switch
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/streamingSwitch"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="10dp"/>
-            </RelativeLayout>
+            android:layout_height="30dp">
 
-            <Button
-                android:id="@+id/inter_load_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="interstitial load ad" />
-
-            <Button
-                android:id="@+id/inter_show_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/inter_load_button"
-                android:text="interstitial show ad" />
-
-            <Button
-                android:id="@+id/full_screen_load_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/inter_show_button"
-                android:text="fullscreen load ad" />
-
-            <Button
-                android:id="@+id/full_screen_show_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/full_screen_load_button"
-                android:text="fullscreen show ad" />
-
-            <Button
-                android:id="@+id/multi_rewarded_load_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/full_screen_show_button"
-                android:text="multi rewarded load ad" />
-
-            <Button
-                android:id="@+id/multi_rewarded_show_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/multi_rewarded_load_button"
-                android:text="multi rewarded show ad" />
-
-            <Button
-                android:id="@+id/normal_rewarded_load_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/full_screen_show_button"
-                android:text="normal rewarded load ad" />
-
-            <Button
-                android:id="@+id/normal_rewarded_show_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/multi_rewarded_load_button"
-                android:text="normal rewarded show ad" />
-
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
-
-                android:id="@+id/spinner"/>
-            <RelativeLayout
+            <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            <com.appnext.banners.BannerView
-                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:text="Set streaming mode" />
+
+            <Switch
+                android:id="@+id/streamingSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp" />
+        </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/in_feed_1_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="In feed example 1" />
+
+        <Button
+            android:id="@+id/in_feed_2_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="In feed example 2" />
+
+        <Button
+            android:id="@+id/inter_load_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="interstitial load ad" />
+
+        <Button
+            android:id="@+id/inter_show_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/inter_load_button"
+            android:text="interstitial show ad" />
+
+        <Button
+            android:id="@+id/full_screen_load_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="fullscreen load ad" />
+
+        <Button
+            android:id="@+id/full_screen_show_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="fullscreen show ad" />
+
+        <Button
+            android:id="@+id/multi_rewarded_load_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="multi rewarded load ad" />
+
+        <Button
+            android:id="@+id/multi_rewarded_show_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="multi rewarded show ad" />
+
+        <Button
+            android:id="@+id/normal_rewarded_load_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="normal rewarded load ad" />
+
+        <Button
+            android:id="@+id/normal_rewarded_show_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="normal rewarded show ad" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+
+            android:minHeight="48dp" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.appnext.banners.BannerView xmlns:ads="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/banner1"
-                android:visibility="invisible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="invisible"
                 ads:bannerSize="BANNER"
-                ads:placementId="a48ac80e-7c52-402d-b061-b7d6ca400823"/>
+                ads:placementId="103029bd-5625-4ba2-9293-8a29461b8692" />
 
-            <com.appnext.banners.BannerView
-                xmlns:ads="http://schemas.android.com/apk/res-auto"
+            <com.appnext.banners.BannerView xmlns:ads="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/banner2"
-                android:visibility="invisible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="invisible"
                 ads:bannerSize="LARGE_BANNER"
-                ads:placementId="ea4af50b-40ca-4f3b-8beb-2b10b562a270"/>
+                ads:placementId="103029bd-5625-4ba2-9293-8a29461b8692" />
 
-            <com.appnext.banners.BannerView
-                xmlns:ads="http://schemas.android.com/apk/res-auto"
+            <com.appnext.banners.BannerView xmlns:ads="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/banner3"
-                android:visibility="invisible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="invisible"
                 ads:bannerSize="MEDIUM_RECTANGLE"
-                ads:placementId="4f4ba404-0215-42c0-acff-77de7a45fdc9"/>
-            </RelativeLayout>
-        </LinearLayout>
-    </ScrollView>
-</RelativeLayout>
+                ads:placementId="103029bd-5625-4ba2-9293-8a29461b8692" />
+        </RelativeLayout>
+
+        <com.appnext.nativeads.designed_native_ads.views.AppnextDesignedNativeAdView
+            android:id="@+id/designed_native_ads"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            appnext:backgroundColor="@android:color/darker_gray"
+            appnext:localDirection="true"
+            appnext:presentAppTitles="true"
+            appnext:title="Recommended Apps"
+            appnext:titleColor="@android:color/holo_blue_bright"
+            appnext:transparency="80" />
+    </LinearLayout>
+</ScrollView>
